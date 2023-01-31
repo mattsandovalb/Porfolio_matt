@@ -43,6 +43,7 @@ class WorksController extends Controller
         $work->technologies = $request ->technologies;
         $work->github = $request ->github;
         $work->deploy = $request ->deploy;
+        
         $work->save();
 
         return $work;
@@ -68,6 +69,8 @@ class WorksController extends Controller
      */
     public function update(Request $request, Works $work)
     {
+
+
         $work->name = $request ->name;
         $work->description = $request ->description;
         $work->image = $request ->image;
@@ -76,6 +79,7 @@ class WorksController extends Controller
         $work->deploy = $request ->deploy;
 
         $work->update();
+        
         return $work;
     }
 
