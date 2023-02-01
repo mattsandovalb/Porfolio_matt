@@ -1,11 +1,15 @@
 
+import React from 'react';
+import Router from './router/Router';
 import './App.css';
-import Nav from './components/NavBar/Nav';
+import Show from './components/CRUD/Show';
+
+
 
 function App() {
   return (
     <div className="App">
-      <Nav />
+      <Router />
     </div>
   );
 }
