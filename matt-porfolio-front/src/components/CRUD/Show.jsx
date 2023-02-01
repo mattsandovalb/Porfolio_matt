@@ -32,7 +32,11 @@ const Show = () => {
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>email</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Technologies</th>
+            <th>Github</th>
+            <th>Deploy</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -40,11 +44,11 @@ const Show = () => {
           {elementos.map((elemento) => (
             <tr key={elemento.id}>
               <td>{elemento.name}</td>
-              <td>{elemento.image}</td>
               <td>{elemento.description}</td>
+              <td>{elemento.image}</td>
+              <td>{elemento.technologies}</td>
               <td>{elemento.github}</td>
               <td>{elemento.deploy}</td>
-              <td>{elemento.technologies}</td>
               <td>
                 <Link to={`/edit/${elemento.id}`} className="btn btn-warning">
                   Edit

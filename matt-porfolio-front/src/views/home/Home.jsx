@@ -4,7 +4,7 @@ import Show from '../../components/CRUD/Show'
 const Home = () => {
   return (
     <div>
-    <h1>Puta España</h1>
+    <h1>Projects</h1>
       <Show />
 
     </div>
