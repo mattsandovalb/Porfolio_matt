@@ -13,6 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { FaUser } from "react-icons/fa";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import useDarkMode from "../DarkModeProvider/DarkMode";
+import { useNavigate } from "react-router-dom";
 
 const pages = ["HOME", "ABOUT", "PROJECTS", "CONTACT"];
 const settings = ["LOGIN"];
@@ -20,6 +21,7 @@ const settings = ["LOGIN"];
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const navigate = useNavigate();
   const colorMode = useDarkMode();
 
   const handleOpenNavMenu = (event) => {
@@ -34,6 +36,7 @@ function ResponsiveAppBar() {
   };
 
   const handleCloseUserMenu = () => {
+    navigate('/admin')
     setAnchorElUser(null);
   };
 
@@ -168,7 +171,7 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem  key={setting} onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}

@@ -1,11 +1,14 @@
 import { Box, Button, Link, Typography } from '@mui/material'
 import React from 'react'
 import { TypeAnimation } from 'react-type-animation';
-
-
+import Layout from '../../components/layout/Layout';
+import About from '../About/About';
+import Projects from '../../components/Projects/Projects';
 const Home = () => {
   
+
   return (
+    <Layout>
     <Box sx={{ display:'flex',flexDirection:'column',height:'100vh',  bgcolor: 'background.default', justifyContent:'center'}}>
       <Typography sx={{ textAlign:'center', gap:5, height:'15%', color:'text.secondary'}}>
       <TypeAnimation variant='h2'
@@ -34,6 +37,9 @@ const Home = () => {
         <Button sx={{BgColor:'button.secondary'}}><Link sx={{textDecoration:'none', color:'text.secondary'}}>CONTACT</Link></Button>
       </Box>
     </Box>
+    <About/>
+    <Projects/>
+    </Layout>
   )
 }
 

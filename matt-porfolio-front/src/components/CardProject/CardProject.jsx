@@ -8,22 +8,25 @@ import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 export default function CardProject(props) {
   const theme = useTheme();
 
-  
   return (
-    <Card sx={{ display: "flex",  }}>
+    <Card sx={{ display: "flex" }}>
       <CardMedia
         component="img"
-        sx={{ width: 131, margin:2, borderRadius:7, display:{xs:'none', sm:'block'} }}
+        sx={{
+          width: 131,
+          margin: 2,
+          borderRadius: 7,
+          display: { xs: "none", sm: "block" },
+        }}
         image={props.works.image}
-        alt={props.works.name + ' image'}
+        alt={props.works.name + " image"}
       />
-      <Box sx={{  flexDirection: "column" }}>
+      <Box sx={{ flexDirection: "column" }}>
         <CardContent sx={{ flex: "1 0 " }}>
           <Typography component="div" variant="h5">
             {props.works.name}
@@ -36,41 +39,53 @@ export default function CardProject(props) {
             {props.works.description}
           </Typography>
         </CardContent>
-        
-        <Box 
-        sx={{ 
-          display: "flex", 
-          alignItems: "center", 
-          pl: 1, 
-          pb: 1,
-          width:'100%',
-          justifyContent: 'space-between',
-          }}>
-            
+
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            pl: 1,
+            pb: 1,
+            width: "100%",
+            justifyContent: "space-between",
+          }}
+        >
           <Typography component="div" variant="body1">
-          {props.works.technologies}
+            {props.works.technologies}
           </Typography>
-        
 
           <Box
             sx={{
               display: "flex",
-              
-              gap:2,
+
+              gap: 2,
             }}
           >
             <Button sx={{ bgcolor: "black" }} variant="contained">
-              <Link target="_blank" href={props.works.github} sx={{ color: "White" }}>GitHub</Link>
+              <Link
+                target="_blank"
+                href={props.works.github}
+                sx={{ color: "White" }}
+              >
+                GitHub
+              </Link>
             </Button>
             <Button
               sx={{ bgcolor: "white", borderColor: "black" }}
-              variant="contained">
-              <Link target="_blank" href={props.works.deploy} sx={{ color: "Black" }}>Deploy</Link>
+              variant="contained"
+            >
+              <Link
+                target="_blank"
+                href={props.works.deploy}
+                sx={{ color: "Black" }}
+              >
+                Deploy
+              </Link>
             </Button>
 
-          <IconButton>
-            <ArrowForwardIcon/>
-          </IconButton>
+            <IconButton>
+              <ArrowForwardIcon />
+            </IconButton>
           </Box>
         </Box>
       </Box>

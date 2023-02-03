@@ -2,6 +2,23 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import { Button } from "@mui/material";
+import { Box } from "@mui/system";
+
+
+function createData(Name, Description, Image, Technologies, Github, Deploy) {
+  return { Name, Description, Image, Technologies, Github, Deploy};
+}
+
+
 const url = "http://127.0.0.1:8000/api";
 
 const Show = () => {
@@ -22,49 +39,57 @@ const Show = () => {
   };
 
   return (
-    <div>
-      <Link to="/create" className="btn btn-success btn-lg ">
+    
+    
+    <Box sx={{display:'flex', alignItems:'center', alignContent:'center', width:'100wh', height:'100vh', flexDirection:''}}>
+      
+      <Link to="/create" >
         {" "}
         Create{" "}
       </Link>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre: </th>
-            <th>Description: </th>
-            <th>Image: </th>
-            <th>Technologies: </th>
-            <th>Github: </th>
-            <th>Deploy: </th>
-            <th>Action: </th>
-          </tr>
-        </thead>
-        <tbody>
+      <TableContainer component={Paper}>
+      <Table sx={{ minWidth:350 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>PROJECTS</TableCell>
+            <TableCell align="right">Name</TableCell>
+            <TableCell align="right">Description</TableCell>
+            <TableCell align="right">Image</TableCell>
+            <TableCell align="right">Technologies</TableCell>
+            <TableCell align="right">Github</TableCell>
+            <TableCell align="right">Deploy</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
           {elementos.map((elemento) => (
-            <tr key={elemento.id}>
-              <td>{elemento.name}</td>
-              <td>{elemento.description}</td>
-              <td>{elemento.image}</td>
-              <td>{elemento.technologies}</td>
-              <td>{elemento.github}</td>
-              <td>{elemento.deploy}</td>
-              <td>
-                <Link to={`/edit/${elemento.id}`} className="btn btn-warning">
+            <TableRow
+              key={elemento.id}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {elemento.id}
+              </TableCell>
+              <TableCell align="right">{elemento.name}</TableCell>
+              <TableCell align="right">{elemento.description}</TableCell>
+              <TableCell align="right">{elemento.image}</TableCell>
+              <TableCell align="right">{elemento.technologies}</TableCell>
+              <TableCell align="right">{elemento.github}</TableCell>
+              <TableCell align="right">{elemento.deploy}</TableCell>
+              <Link to={`/edit/${elemento.id}`} className="btn btn-warning">
                   Edit
                 </Link>
-                <button
+                <Button
                   onClick={() => deleteElement(elemento.id)}
                   className="btn btn-danger"
                 >
                   Delete
-                </button>
-              </td>
-            </tr>
+                </Button>
+            </TableRow>
           ))}
-        </tbody>
-      </table>
-    </div>
+        </TableBody>
+      </Table>
+    </TableContainer>
+    </Box>
   );
 };
 export default Show;
