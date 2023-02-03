@@ -34,6 +34,9 @@ export const DarkModeProvider = ({ children }) => {
                         text: {
                             secondary: '#00000',
                         },
+                        button:{
+                            secondary: '#000000'
+                        },
                         divider: '#1D182F',
                     }),
                     ...(mode === 'dark' && {
@@ -46,6 +49,9 @@ export const DarkModeProvider = ({ children }) => {
                         },
                         text: {
                             secondary: '#FFFFFF',
+                        },
+                        button:{
+                            secondary: '#FFFFFF'
                         },
                         divider: '#F7F7FD',
                     }),

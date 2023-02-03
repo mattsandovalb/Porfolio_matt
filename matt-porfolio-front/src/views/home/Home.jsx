@@ -6,7 +6,7 @@ import { TypeAnimation } from 'react-type-animation';
 const Home = () => {
   
   return (
-    <Box position='' sx={{ display:'flex',flexDirection:'column',height:'100vh',  bgcolor: 'background.default', justifyContent:'center'}}>
+    <Box sx={{ display:'flex',flexDirection:'column',height:'100vh',  bgcolor: 'background.default', justifyContent:'center'}}>
       <Typography sx={{ textAlign:'center', gap:5, height:'15%', color:'text.secondary'}}>
       <TypeAnimation variant='h2'
       sequence={[
@@ -31,7 +31,7 @@ const Home = () => {
          Junior Full-Stack Developer
       </Typography>
       <Box sx={{display:'flex', justifyContent:'center'}}>
-        <Button sx={{BgColor:'red'}}><Link sx={{textDecoration:'none', color:'text.secondary'}}>CONTACT</Link></Button>
+        <Button sx={{BgColor:'button.secondary'}}><Link sx={{textDecoration:'none', color:'text.secondary'}}>CONTACT</Link></Button>
       </Box>
     </Box>
   )

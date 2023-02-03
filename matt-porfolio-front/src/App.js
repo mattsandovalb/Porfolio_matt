@@ -5,6 +5,8 @@ import './App.css';
 import Show from './components/CRUD/Show';
 import Projects from './components/Projects/Projects';
 import Nav from './components/NavBar/Nav';
+import About from './views/About/About';
+import Home from './views/home/Home';
 
 
 
@@ -12,9 +14,10 @@ import Nav from './components/NavBar/Nav';
 function App() {
   return (
     <div className="App">
-    <Nav />
-    
       <Router />
+    <Nav />
+    <About/>
+    <Projects/>
     </div>
   );
 }
