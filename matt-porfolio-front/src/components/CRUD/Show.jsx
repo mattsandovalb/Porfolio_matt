@@ -31,13 +31,13 @@ const Show = () => {
       <table>
         <thead>
           <tr>
-            <th>Nombre</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th>Technologies</th>
-            <th>Github</th>
-            <th>Deploy</th>
-            <th>Action</th>
+            <th>Nombre: </th>
+            <th>Description: </th>
+            <th>Image: </th>
+            <th>Technologies: </th>
+            <th>Github: </th>
+            <th>Deploy: </th>
+            <th>Action: </th>
           </tr>
         </thead>
         <tbody>

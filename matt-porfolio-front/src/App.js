@@ -3,6 +3,7 @@ import React from 'react';
 import Router from './router/Router';
 import './App.css';
 import Show from './components/CRUD/Show';
+import Projects from './components/Projects/Projects';
 
 
 
