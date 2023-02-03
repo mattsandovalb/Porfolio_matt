@@ -2,12 +2,13 @@ import { Box, Button, Link, Typography } from '@mui/material'
 import React from 'react'
 import { TypeAnimation } from 'react-type-animation';
 
+
 const Home = () => {
   
   return (
-    <Box sx={{marginTop:20, height:'100vh'}}>
-      <Typography sx={{textAlign:'center', gap:5, height:'15%'}}>
-      <TypeAnimation variant='h3'
+    <Box position='' sx={{ display:'flex',flexDirection:'column',height:'100vh',  bgcolor: 'background.default', justifyContent:'center'}}>
+      <Typography sx={{ textAlign:'center', gap:5, height:'15%', color:'text.secondary'}}>
+      <TypeAnimation variant='h2'
       sequence={[
         'Hello World', 
         1000, 
@@ -20,21 +21,19 @@ const Home = () => {
       wrapper="div"
       cursor={true}
       repeat={Infinity}
-      style={{ fontSize: '2em',fontWeight:'700' ,color:'white', }}
+      style={{FontSize: '3em',fontWeight:'700' ,color:'text.secondary'}}
     />
       </Typography>
-      <Typography sx={{textAlign: 'center', color:'white', height:'25%'}} variant='h1'>
+      <Typography sx={{color:'text.secondary',textAlign: 'center', height:'25%', fontSize:{xs:50, md:80, xl:150}}} variant='h1'>
         Matt Sandoval Balada
       </Typography>
-      <Typography variant='h4' sx={{color:'white', textAlign:'center', height:'15%'}}>
+      <Typography variant='h4' sx={{color:'text.secondary', textAlign:'center', height:'15%', marginTop: {md:5, xl:10},fontSize:{xs:20, md:40, xl:50}}}>
          Junior Full-Stack Developer
       </Typography>
-
       <Box sx={{display:'flex', justifyContent:'center'}}>
-        <Button sx={{bgcolor:'white'}}><Link sx={{textDecoration:'none', color:'black'}}>CONTACT</Link></Button>
+        <Button sx={{BgColor:'red'}}><Link sx={{textDecoration:'none', color:'text.secondary'}}>CONTACT</Link></Button>
       </Box>
     </Box>
-      
   )
 }
 

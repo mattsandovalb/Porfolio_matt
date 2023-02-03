@@ -11,19 +11,22 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import {FaUser} from 'react-icons/fa'
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import useDarkMode from '../DarkModeProvider/DarkMode';
 
 const pages = ['HOME', 'ABOUT', 'PROJECTS', 'CONTACT'];
 const settings = ['LOGIN'];
 
-function Nav() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
+function ResponsiveAppBar() {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const colorMode = useDarkMode();
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -35,11 +38,15 @@ function Nav() {
     setAnchorElUser(null);
   };
 
+  const handleDarkMode = () =>{
+    colorMode.toggleColorMode();
+  }
+
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" sx={{bgColor:'background.default', top:0, zIndex:666}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          
           <Typography
             variant="h6"
             noWrap
@@ -51,8 +58,9 @@ function Nav() {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'dark',
+              color: 'inherit',
               textDecoration: 'none',
+             
             }}
           >
             mattsandovalb
@@ -70,6 +78,7 @@ function Nav() {
               <MenuIcon />
             </IconButton>
             <Menu
+              
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
@@ -84,17 +93,18 @@ function Nav() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
+                
                 display: { xs: 'block', md: 'none' },
               }}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" >{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+
           <Typography
             variant="h5"
             noWrap
@@ -109,16 +119,17 @@ function Nav() {
               letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
+              fontSize:{xs:12}
             }}
           >
             mattsandovalb
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' },justifyContent:'end', gap:5, marginRight:10 }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, display: 'block' }}
               >
                 {page}
               </Button>
@@ -128,9 +139,12 @@ function Nav() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <FaUser color='secondary.inherit'/>
               </IconButton>
             </Tooltip>
+            <IconButton onClick={handleDarkMode}>
+                 <DarkModeIcon/> 
+              </IconButton>
             <Menu
               sx={{ mt: '45px' }}
               id="menu-appbar"
@@ -154,10 +168,9 @@ function Nav() {
               ))}
             </Menu>
           </Box>
-          {/* DARKMODE */}
         </Toolbar>
       </Container>
     </AppBar>
   );
 }
-export default Nav;
+export default ResponsiveAppBar;
