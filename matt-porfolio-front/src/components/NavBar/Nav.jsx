@@ -13,7 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { FaUser } from "react-icons/fa";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import useDarkMode from "../DarkModeProvider/DarkMode";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const pages = ["HOME", "ABOUT", "PROJECTS", "CONTACT"];
 const settings = ["LOGIN"];
@@ -100,7 +100,7 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Link textAlign="center">{page}</Link>
                 </MenuItem>
               ))}
             </Menu>
